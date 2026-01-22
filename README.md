@@ -7,7 +7,7 @@ The extracted features categories are as follows:
 
 1. **Texture & Spatial Features** – Capturing local intensity variations, contrast, and edge density to characterize lesion texture patterns.
 2. **Morphological & Geometric Features** – Quantifying shape-related properties such as asymmetry, compactness, and convex hull ratios.
-3. **Vascular & Physiological Features** – Assessing blood flow indices and oxygen consumption estimates to infer the vascularity of the lesion.
+3. **Vascular & Physiological Features** – None, not provided.
 4. **Summary Indices** – Aggregated statistical measures summarizing key feature distributions.
 5. **Color Variance Features** - Evaluating variations in red, blue, and overall color intensity throughout the lesion.
 6. **Frequency & Spectral Features** – Extracting high- and low-frequency components to analyze the structure of the lesion in the spectral domain.
@@ -47,8 +47,8 @@ The following tables summarize the characteristics of the selected features used
 **Diameter (D)** | Perimeter | Contour perimeter from `cv2.arcLength`, related to lesion size
 **Diameter (D)** | Circularity | $4\pi \cdot \text{Area} / \text{Perimeter}^2$, measures how circular the lesion is (1 for perfect circle)
 **Diameter (D)** | Compactness Index | Sum of pixel intensities / $\sqrt{\text{image area}}$, relates intensity to size
-**Evolving (E)** | Predicted Shape Change | Variance-based estimate of border deformation over time (scaled by 0.18)
-**Evolving (E)** | Estimated Malignant Transformation Probability | Average of oxygen consumption index and shape change rate, indicating progression risk
+**Evolving (E)** | Predicted Shape Change | - None, not provided.
+**Evolving (E)** | Estimated Malignant Transformation Probability | None, not provided- unavaliable in HAM10000 dataset.
 
 ### Table 2: Image Analysis-based Features
 
@@ -72,11 +72,9 @@ The following tables summarize the characteristics of the selected features used
 **Frequency/Spectral** | freqencyEntropy | Entropy of frequency components (calculation not specified)
 **Frequency/Spectral** | highFreqpowerRatio | Ratio of high-frequency power (calculation not specified)
 **Frequency/Spectral** | Dominant Frequency Component | Mean of FFT magnitude, indicating dominant frequency
-**Vascular/Physiological** | Vascular Density | Sum of skeletonized edges / image area, indicating vascular structure density
-**Vascular/Physiological** | Estimated Blood Flow Index | Mean pixel intensity / 255, estimating blood flow
-**Vascular/Physiological** | Estimated Oxygen Consumption Index | Entropy of flattened image, estimating metabolic activity
-**CNN-Based** | Feature Cluster Compactness | Mean absolute deviation of ResNet50 feature embeddings
-**CNN-Based** | Feature Variance | Variance of ResNet50 feature embeddings
+**Vascular/Physiological** | -
+**NN-Based** | Feature Cluster Compactness | Mean absolute deviation of ResNet50 feature embeddings
+**NN-Based** | Feature Variance | Variance of ResNet50 feature embeddings
 **Histopathological** | Histopathological Similarity to Malignant Cases (M) | Cosine similarity to malignant histopathology features (placeholder database)
 **Histopathological** | Histopathological Similarity to Benign Cases | 1 - malignant similarity, indicating benign feature similarity
 **Demographics** | age | Patient age (metadata, not calculated)
@@ -91,3 +89,7 @@ The HAM10000 dataset, while valuable for training AI models to detect skin cance
 To address this, the proposed AI and machine learning algorithms aim to maximize the extraction of features from the available limited data, focusing on attributes aligned with dermatological interests, such as asymmetry and color variation, to enhance diagnostic support. Although these models achieve high accuracy comparable to dermatologists, their susceptibility to false positives and negatives underscores their role as an assistive tool rather than a replacement for professional judgment, driving efforts to enrich the feature set for more robust clinical insights.
 
 This structured approach ensures a comprehensive feature set, integrating diverse perspectives from image segmentation, deep learning, and metadata analysis to improve interpretability and predictive accuracy. **A total of 62 features have been extracted.**
+
+## Segementation reference image dataset 
+The images are downloaded through: [https://www.kaggle.com/datasets/tschandl/ham10000-lesion-segmentations](https://www.kaggle.com/datasets/tschandl/ham10000-lesion-segmentations)
+
